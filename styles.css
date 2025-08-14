@@ -24,6 +24,36 @@
     font-weight: 700;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/PlayfairDisplay-Bold-4.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal; /* Changed 'bold' to 'normal' as font-weight already defines boldness */
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/PlayfairDisplay-Italic-6.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/PlayfairDisplay-BoldItalic-5.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/PlayfairDisplay-Black-2.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal; /* Changed 'bold' to 'normal' as font-weight already defines boldness */
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/PlayfairDisplay-BlackItalic-3.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
 
 /*OFL1.1 https://github.com/cyrealtype/Lora-Cyrillic/blob/main/OFL.txt*/
 @font-face {
@@ -31,6 +61,36 @@
     src: url('fonts/Lora-Regular-7.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
+}
+@font-face {
+    font-family: 'Lora';
+    src: url('fonts/Lora-Bold-2.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal; /* Changed 'bold' to 'normal' as font-weight already defines boldness */
+}
+@font-face {
+    font-family: 'Lora';
+    src: url('fonts/Lora-BoldItalic-3.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Lora';
+    src: url('fonts/Lora-Italic-4.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Lora';
+    src: url('fonts/Lora-Medium-5.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Lora';
+    src: url('fonts/Lora-MediumItalic-6.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
 }
 
 body {
@@ -125,6 +185,7 @@ body {
 .glass-header p {
     font-size: 1.5rem;
     color: var(--light-text);
+    font-style: italic;
 }
 
 .glass-main {
@@ -185,6 +246,7 @@ blockquote.poem {
     line-height: 1.8;
     color: var(--text-color);
     margin: 2rem 0;
+    font-style: italic;
 }
 
 blockquote.poem.final {
