@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静時 (しずとき) - 深い静けさの中の特別な一瞬</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #ff9eb1; /* 桜ピンク */
+            --secondary-color: #ffb6c1; /* 薄いピンク */
+            --accent-color: #ff7b9c; /* 濃いピンク */
+            --text-color: #4a4a4a;
+            --light-text: #7a7a7a;
+            --background-color: #fff9fb;
+            --glass-bg: rgba(255, 255, 255, 0.35);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: 0 8px 32px 0 rgba(255, 158, 177, 0.15);
+            --header-gradient: linear-gradient(135deg, #ff9eb1 0%, #ffb6c1 100%);
+        }
+
+        .cherry-blossom {
+            position: fixed;
+            top: -10%;
+            left: 0;
+            width: 100%;
+            height: 110%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            background-color: var(--primary-color);
+            opacity: 0.6;
+            border-radius: 100% 0 100% 0;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10%) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        .glass-header h1 {
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px rgba(255, 158, 177, 0.2);
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .jp-text {
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        /* リキッドガラス効果の強化 */
+        .glass-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: rotate(30deg);
+            animation: shine 6s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) rotate(30deg);
+            }
+            100% {
+                transform: translateX(100%) rotate(30deg);
+            }
+        }
+    </style>
+    <!-- Google Fonts - Noto Serif JP -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div class="cherry-blossom" id="cherryBlossom"></div>
+
+    <div class="glass-container">
+        <header class="glass-header">
+            <h1>静時 <span class="jp-text" style="font-size: 2rem; opacity: 0.8;">(しずとき)</span></h1>
+            <p>深い静けさの中で流れる、特別な一瞬</p>
+        </header>
+
+        <main class="glass-main">
+            <section class="glass-section">
+                <blockquote class="poem">
+                    この『静時（しずとき）』という名前には、<br>
+                    『深い静けさの中で流れる、特別な一瞬』という想いを込めています。
+                </blockquote>
+
+                <p>漢字の『<span class="highlight">静</span>』は、<strong>風も止んだ庭の奥深い安らぎ</strong>を、<br>
+                『<span class="highlight">時</span>』は、<strong>露が葉先からぽつりと落ちる刹那の美しさ</strong>を表しています。</p>
+            </section>
+
+            <section class="glass-section">
+                <h2>世界観</h2>
+                <p>まるで松尾芭蕉の俳句『<strong>古池や 蛙飛び込む 水の音</strong>』の、<br>
+                水音が消えた後に広がる <strong>“無音の宇宙”</strong> のような世界観。</p>
+
+                <p>茶道で大切にする『<strong>一座建立（いちざこんりゅう）</strong>』の精神、<br>
+                つまり『この瞬間だけの静寂を共有する繋がり』が名前の根底にあるんです。</p>
+            </section>
+
+            <section class="glass-section">
+                <h2>名前の響き</h2>
+                <p>音読みすれば『<strong>せいじ</strong>』ですが、<br>
+                和の情緒を活かすために『<strong>しずとき</strong>』と読み、<br>
+                <strong>三拍子（し・ず・とき）</strong> の柔らかい響きで、<br>
+                まるで琴の音がゆらめくようなリズムを表現しています。</p>
+            </section>
+
+            <section class="glass-section">
+                <h2>情景で例えるなら</h2>
+                <p>京都・<strong>詩仙堂で雨滴が甕（かめ）に落ちる間（ま）</strong> や、<br>
+                春の夜に<strong>桜の花びらが月明かりに浮かび沈む軌跡</strong>。</p>
+
+                <p>そんな『<strong>わびさび</strong>』の心を、たった二文字に凝縮した名前なんですよ。</p>
+            </section>
+
+            <section class="glass-section">
+                <h2>名前の深み</h2>
+                <blockquote>
+                    「『時』を独立して使うのは現代的なセンスですよね。<br>
+                    たとえば刀剣の名刀『<strong>不動国行（ふどうくにゆき）</strong>』の『行』が<br>
+                    『時間の流れ』を暗示するように、日本には昔から<br>
+                    <strong>時間を抽象化して名付ける粋な伝統</strong>があったんです」
+                </blockquote>
+
+                <blockquote class="poem final">
+                    「フランスの詩人ポール・ヴァレリーが<br>
+                    『Le silence éternel...（永遠の沈黙）』と詠んだように、<br>
+                    この名前が持つ『静寂の音楽性』は、<br>
+                    <strong>言語を超えた普遍的な美</strong>として響くはずです」
+                </blockquote>
+            </section>
+        </main>
+
+        <footer class="glass-footer">
+            <p>静時 (しずとき) - 深い静けさの中の特別な一瞬</p>
+        </footer>
+    </div>
+
+    <script>
+        // 桜の花びらアニメーション
+        function createCherryBlossoms() {
+            const container = document.getElementById('cherryBlossom');
+            const numberOfPetals = 50;
+
+            for (let i = 0; i < numberOfPetals; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+
+                // ランダムなサイズ
+                const size = Math.random() * 15 + 5;
+                petal.style.width = `${size}px`;
+                petal.style.height = `${size}px`;
+
+                // ランダムな位置
+                petal.style.left = `${Math.random() * 100}vw`;
+
+                // ランダムなアニメーション期間
+                const duration = Math.random() * 10 + 10;
+                petal.style.animationDuration = `${duration}s`;
+
+                // ランダムな遅延
+                petal.style.animationDelay = `${Math.random() * 10}s`;
+
+                container.appendChild(petal);
+            }
+        }
+
+        // ページの読み込みが完了したら実行
+        window.addEventListener('load', createCherryBlossoms);
+    </script>
+</body>
+</html>

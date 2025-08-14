@@ -125,7 +125,6 @@ body {
 .glass-header p {
     font-size: 1.5rem;
     color: var(--light-text);
-    font-style: italic;
 }
 
 .glass-main {
@@ -177,7 +176,6 @@ blockquote {
     border-left: 4px solid var(--accent-color);
     padding-left: 1rem;
     margin: 1.5rem 0;
-    font-style: italic;
     color: var(--light-text);
 }
 
@@ -239,7 +237,6 @@ blockquote.poem.final {
 .glass-footer {
     text-align: center;
     padding: 1.5rem;
-    font-style: italic;
     color: var(--light-text);
 }
 
