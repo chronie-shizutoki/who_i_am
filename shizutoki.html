@@ -6,6 +6,27 @@
     <title>静時 (しずとき) - 深い静けさの中の特別な一瞬</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+/*OFL1.1 https://fonts.google.com/specimen/Noto+Serif+JP*/
+@font-face {
+    font-family: 'Noto Serif JP';
+    src: url('fonts/NotoSerifCJKjp-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Serif JP';
+    src: url('fonts/NotoSerifCJKjp-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Serif JP';
+    src: url('fonts/NotoSerifCJKjp-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
         :root {
             --primary-color: #ff9eb1; /* 桜ピンク */
             --secondary-color: #ffb6c1; /* 薄いピンク */
@@ -27,6 +48,91 @@
             height: 110%;
             z-index: -1;
             pointer-events: none;
+
+        /* モバイルデバイス向けの適応 */
+        @media (max-width: 768px) {
+            /* 詩の引用ブロック - 最終版 */
+            blockquote.poem.final {
+                font-size: 1.2rem;
+                padding: 1.5rem 1rem;
+                line-height: 1.6;
+            }
+            
+            /* 詩の引用ブロック - 通常版 */
+            blockquote.poem {
+                font-size: 1.1rem;
+                padding: 1rem;
+                line-height: 1.5;
+            }
+            
+            /* ページヘッダー */
+            .glass-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .glass-header p {
+                font-size: 1.1rem;
+            }
+            
+            /* セクションタイトル */
+            .glass-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            /* コンテナの内側余白 */
+            .glass-container,
+            .glass-header,
+            .glass-main,
+            .glass-footer,
+            .glass-section {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* 詩の引用ブロック - 最終版 */
+            blockquote.poem.final {
+                font-size: 1rem;
+                padding: 1rem 0.5rem;
+                line-height: 1.5;
+            }
+            
+            /* 詩の引用ブロック - 通常版 */
+            blockquote.poem {
+                font-size: 0.95rem;
+                padding: 0.8rem;
+                line-height: 1.4;
+            }
+            
+            /* ページヘッダー */
+            .glass-header h1 {
+                font-size: 2rem;
+            }
+            
+            .glass-header p {
+                font-size: 1rem;
+            }
+            
+            /* セクションタイトル */
+            .glass-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            /* コンテナの内側余白 */
+            .glass-container,
+            .glass-header,
+            .glass-main,
+            .glass-footer,
+            .glass-section {
+                padding: 1rem;
+            }
+            
+            /* 通常の段落 */
+            p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+        }
             overflow: hidden;
         }
 
@@ -96,8 +202,7 @@
             }
         }
     </style>
-    <!-- Google Fonts - Noto Serif JP -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div class="background-animation"></div>
