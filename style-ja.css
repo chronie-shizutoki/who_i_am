@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*OFL1.1 https://fonts.google.com/specimen/Noto+Serif+JP*/
+@font-face {
+    font-family: 'Noto Serif JP';
+    src: url('fonts/NotoSerifCJKjp-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Serif JP';
+    src: url('fonts/NotoSerifCJKjp-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Serif JP';
+    src: url('fonts/NotoSerifCJKjp-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+*{
+    font-family: 'Noto Serif JP', serif;
+}
+        :root {
+            --primary-color: #ff9eb1; /* 桜ピンク */
+            --secondary-color: #ffb6c1; /* 薄いピンク */
+            --accent-color: #ff7b9c; /* 濃いピンク */
+            --text-color: #4a4a4a;
+            --light-text: #7a7a7a;
+            --background-color: #fff9fb;
+            --glass-bg: rgba(255, 255, 255, 0.35);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: 0 8px 32px 0 rgba(255, 158, 177, 0.15);
+            --header-gradient: linear-gradient(135deg, #ff9eb1 0%, #ffb6c1 100%);
+        }
+
+        .cherry-blossom {
+            position: fixed;
+            top: -10%;
+            left: 0;
+            width: 100%;
+            height: 110%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .petal {
+            position: absolute;
+            background-color: var(--primary-color);
+            opacity: 0.6;
+            border-radius: 100% 0 100% 0;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10%) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        .glass-header h1 {
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px rgba(255, 158, 177, 0.2);
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .jp-text {
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        /* リキッドガラス効果の強化 */
+        .glass-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: rotate(30deg);
+            animation: shine 6s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) rotate(30deg);
+            }
+            100% {
+                transform: translateX(100%) rotate(30deg);
+            }
+        }
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Background animation */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    overflow: hidden;
+}
+
+.background-animation::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at 30% 40%, rgba(108, 92, 231, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(0, 206, 201, 0.1) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(5%, 5%) rotate(2deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+/* Glassmorphism container */
+.glass-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+
+.glass-header,
+.glass-main,
+.glass-footer {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    box-shadow: var(--glass-shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.glass-header:hover,
+.glass-section:hover,
+.glass-footer:hover {
+    box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.25);
+    transform: translateY(-5px);
+}
+
+.glass-header {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.glass-header h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.glass-header p {
+    font-size: 1.5rem;
+    color: var(--light-text);
+}
+
+.glass-main {
+    padding: 2rem;
+}
+
+.glass-section {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.glass-section h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.glass-section h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin: 1.5rem 0 1rem;
+}
+
+.glass-section p {
+    margin-bottom: 1rem;
+}
+
+.glass-section ul,
+.glass-section ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.glass-section li {
+    margin-bottom: 0.5rem;
+}
+
+blockquote {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: var(--light-text);
+}
+
+blockquote.poem {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin: 2rem 0;
+}
+
+blockquote.poem.final {
+    font-size: 1.5rem;
+    text-align: center;
+    border-left: none;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.glass-footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--light-text);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .glass-container {
+        padding: 1rem;
+    }
+
+    .glass-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .glass-header p {
+        font-size: 1.2rem;
+    }
+
+    .table-header,
+    .table-row {
+        grid-template-columns: 1fr;
+    }
+
+    .glass-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .glass-section h3 {
+        font-size: 1.3rem;
+    }
+
+                /* 詩の引用ブロック - 最終版 */
+            blockquote.poem.final {
+                font-size: 1.3rem;
+                padding: 1.2rem 1rem;
+                line-height: 1.7;
+            }
+            
+            /* 詩の引用ブロック - 通常版 */
+            blockquote.poem {
+                font-size: 1.1rem;
+                padding: 1rem;
+                line-height: 1.5;
+            }
+            
+            /* ページヘッダー */
+            .glass-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .glass-header p {
+                font-size: 1.1rem;
+            }
+            
+            /* セクションタイトル */
+            .glass-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            /* コンテナの内側余白 */
+            .glass-container,
+            .glass-header,
+            .glass-main,
+            .glass-footer,
+            .glass-section {
+                padding: 1.5rem;
+            }
+}
+
+@media (max-width: 480px) {
+    .glass-header h1 {
+        font-size: 2rem;
+    }
+
+    .glass-header p {
+        font-size: 1rem;
+    }
+
+    .glass-section {
+        padding: 1.5rem;
+    }
+
+                /* 詩の引用ブロック - 最終版 */
+            blockquote.poem.final {
+                font-size: 1.1rem;
+                padding: 1rem;
+                line-height: 1.6;
+                border-radius: 8px;
+            }
+            
+            /* 詩の引用ブロック - 通常版 */
+            blockquote.poem {
+                font-size: 0.95rem;
+                padding: 0.8rem;
+                line-height: 1.4;
+            }
+            
+            /* ページヘッダー */
+            .glass-header h1 {
+                font-size: 2rem;
+            }
+            
+            .glass-header p {
+                font-size: 1rem;
+            }
+            
+            /* セクションタイトル */
+            .glass-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            /* コンテナの内側余白 */
+            .glass-container,
+            .glass-header,
+            .glass-main,
+            .glass-footer,
+            .glass-section {
+                padding: 1rem;
+            }
+            
+            /* 通常の段落 */
+            p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fade-in animation */
+.glass-section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered animation delays */
+#etymology { animation-delay: 0.2s; }
+#sonic { animation-delay: 0.4s; }
+#philosophy { animation-delay: 0.6s; }
+#visual { animation-delay: 0.8s; }
+#comparison { animation-delay: 1s; }
+#soul { animation-delay: 1.2s; }
