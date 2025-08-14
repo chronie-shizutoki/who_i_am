@@ -1,0 +1,297 @@
+:root {
+    --primary-color: #5d4fff;
+    --secondary-color: #8a7fff;
+    --accent-color: #00cec9;
+    --text-color: #2d3436;
+    --light-text: #636e72;
+    --background-color: #f5f6fa;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    --header-gradient: linear-gradient(135deg, #5d4fff 0%, #8a7fff 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Brush Script MT', cursive;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Background animation */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    overflow: hidden;
+}
+
+.background-animation::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at 30% 40%, rgba(108, 92, 231, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(0, 206, 201, 0.1) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(5%, 5%) rotate(2deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+/* Glassmorphism container */
+.glass-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+
+.glass-header,
+.glass-main,
+.glass-footer {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    box-shadow: var(--glass-shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.glass-header:hover,
+.glass-section:hover,
+.glass-footer:hover {
+    box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.25);
+    transform: translateY(-5px);
+}
+
+.glass-header {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.glass-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.glass-header p {
+    font-size: 1.5rem;
+    color: var(--light-text);
+    font-style: italic;
+}
+
+.glass-main {
+    padding: 2rem;
+}
+
+.glass-section {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.glass-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.glass-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin: 1.5rem 0 1rem;
+}
+
+.glass-section p {
+    margin-bottom: 1rem;
+}
+
+.glass-section ul,
+.glass-section ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.glass-section li {
+    margin-bottom: 0.5rem;
+}
+
+blockquote {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--light-text);
+}
+
+blockquote.poem {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin: 2rem 0;
+}
+
+blockquote.poem.final {
+    font-size: 1.5rem;
+    text-align: center;
+    border-left: none;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+/* Comparison table */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: var(--text-color); /* Use theme color variable instead of hardcoded white */
+    font-weight: 700;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px 8px 0 0;
+    text-align: left;
+    transition: box-shadow 0.3s ease; /* Add smooth transition for box-shadow */
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1rem;
+    border-bottom: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.table-row:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.table-row.highlighted {
+    background: rgba(108, 92, 231, 0.1);
+    font-weight: bold;
+}
+
+.glass-footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-style: italic;
+    color: var(--light-text);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .glass-container {
+        padding: 1rem;
+    }
+
+    .glass-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .glass-header p {
+        font-size: 1.2rem;
+    }
+
+    .table-header,
+    .table-row {
+        grid-template-columns: 1fr;
+    }
+
+    .glass-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .glass-section h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .glass-header h1 {
+        font-size: 2rem;
+    }
+
+    .glass-header p {
+        font-size: 1rem;
+    }
+
+    .glass-section {
+        padding: 1.5rem;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fade-in animation */
+.glass-section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered animation delays */
+#etymology { animation-delay: 0.2s; }
+#sonic { animation-delay: 0.4s; }
+#philosophy { animation-delay: 0.6s; }
+#visual { animation-delay: 0.8s; }
+#comparison { animation-delay: 1s; }
+#soul { animation-delay: 1.2s; }
